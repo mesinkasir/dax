@@ -1,0 +1,9 @@
+<?xml version="1.0"?><rss version="2.0"><channel><title>DAX Feed</title><link>http://localhost:8080</link><description>DAX</description>
+<item><title><![CDATA[DAX Roadmap v2: AOT, Image Optimization, and CMS Mode]]></title><link>http://localhost:8080/posts/DAX-Roadmap-v2/</link><guid>http://localhost:8080/posts/DAX-Roadmap-v2/</guid></item>
+<item><title><![CDATA[Deploy DAX Static Site to GitHub Pages, Cloudflare, and Vercel]]></title><link>http://localhost:8080/posts/Deploy-DAX-to-GitHub-Pages-&-Cloudflare/</link><guid>http://localhost:8080/posts/Deploy-DAX-to-GitHub-Pages-&-Cloudflare/</guid></item>
+<item><title><![CDATA[No Node.js, No npm Hell: Building SSG Pure C#]]></title><link>http://localhost:8080/posts/No-Node/</link><guid>http://localhost:8080/posts/No-Node/</guid></item>
+<item><title><![CDATA[Markdig Power: Extended Markdown in DAX .NET SSG]]></title><link>http://localhost:8080/posts/Markdig-Power/</link><guid>http://localhost:8080/posts/Markdig-Power/</guid></item>
+<item><title><![CDATA[Auto Collections and Free Nested Frontmatter - Jekyll Style but Faster]]></title><link>http://localhost:8080/posts/Auto-Collections-and-Free-Nested-Frontmatter/</link><guid>http://localhost:8080/posts/Auto-Collections-and-Free-Nested-Frontmatter/</guid></item>
+<item><title><![CDATA[Auto SEO, Sitemap, RSS and OpenGraph in DAX C#]]></title><link>http://localhost:8080/posts/Auto-SEO,-Sitemap,-RSS/</link><guid>http://localhost:8080/posts/Auto-SEO,-Sitemap,-RSS/</guid></item>
+<item><title><![CDATA[Understanding DAX .dax Layout Engine - Razor Lite for Static]]></title><link>http://localhost:8080/posts/Understanding-DAX/</link><guid>http://localhost:8080/posts/Understanding-DAX/</guid></item>
+</channel></rss>

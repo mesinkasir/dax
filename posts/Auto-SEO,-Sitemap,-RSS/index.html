@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="DAX dotnet - Pure C# Slim SSG">
+<title>Auto SEO, Sitemap, RSS and OpenGraph in DAX C#</title>
+<meta name="description" content="How DAX auto generates sitemap.xml, rss.xml, and SEO meta without plugins">
+<link rel="canonical" href="http://localhost:8080/posts/Auto-SEO,-Sitemap,-RSS/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="MINIMAL">
+<meta property="og:title" content="Auto SEO, Sitemap, RSS and OpenGraph in DAX C#">
+<meta property="og:description" content="How DAX auto generates sitemap.xml, rss.xml, and SEO meta without plugins">
+<meta property="og:url" content="http://localhost:8080/posts/Auto-SEO,-Sitemap,-RSS/">
+<meta property="og:image" content="http://localhost:8080/img/favicon.webp">
+<meta property="og:image:alt" content="Auto SEO, Sitemap, RSS and OpenGraph in DAX C#">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Auto SEO, Sitemap, RSS and OpenGraph in DAX C#">
+<meta name="twitter:description" content="How DAX auto generates sitemap.xml, rss.xml, and SEO meta without plugins">
+<meta name="twitter:image" content="http://localhost:8080/img/favicon.webp">
+<meta name="twitter:image:alt" content="Auto SEO, Sitemap, RSS and OpenGraph in DAX C#">
+<link href="/img/favicon.webp" rel="icon" type="image/x-icon">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Auto SEO, Sitemap, RSS and OpenGraph in DAX C#",
+  "description": "How DAX auto generates sitemap.xml, rss.xml, and SEO meta without plugins",
+  "url": "http://localhost:8080/posts/Auto-SEO,-Sitemap,-RSS/",
+  "image": "http://localhost:8080/img/favicon.webp",
+  "datePublished": "2026-08-02",
+  "author": {
+    "@type": "Person",
+    "name": "axcora"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "MINIMAL",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:8080//img/favicon.webp"
+    }
+  }
+}
+</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axcora-css@1.0.1/axcora.min.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="navbar p-3 shadow-sm">
+<div class="container">
+  <a class="navbar-brand ms-3" href="http://localhost:8080">MINIMAL</a>
+  <button class="navbar-toggler text-dark" onclick="document.querySelector('.navbar-collapse').classList.toggle('show')">☰</button>
+  <div class="navbar-collapse">
+    <ul class="navbar-nav mt-3">
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="/">
+      Home</a></li>
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="/posts/">
+      Blog</a></li>
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="/tags/">
+      Tags</a></li>
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="https://dax.axcora.com/docs/">
+      Docs</a></li>
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="https://dax.axcora.com/deploy/">
+      Deploy</a></li>
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="https://creativitaz.gumroad.com/l/dax">
+      Download</a></li>
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="https://github.com/mesinkasir/dax/">
+      Github</a></li>
+      
+    </ul>
+  </div>
+  </div>
+</nav>
+<header class="container p-3 mt-3">
+<h1 class="hero-title"><a href="/posts/Auto-SEO,-Sitemap,-RSS/">Auto SEO, Sitemap, RSS and OpenGraph in DAX C#</a></h1>
+<nav aria-label="breadcrumb" class="navbar">
+ <ul class="navbar-nav mt-3">
+      <li class="nav-item"><a class="nav-link text-dark" href="http://localhost:8080">Home</a></li>
+      <li class="nav-item"><a class="nav-link text-dark" href="/posts/">Blog</a></li>
+      <li class="nav-item"><a class="nav-link text-dark" href="/posts/Auto-SEO,-Sitemap,-RSS/">Auto SEO, Sitemap, RSS and OpenGraph in DAX C#</a></li>
+    </ul>
+</nav>
+</header>
+<main class="container p-3">
+<img class="img-cover" 
+width="100%" height="100%"
+alt="Auto SEO, Sitemap, RSS and OpenGraph in DAX C#"
+src="/img/favicon.webp"
+/>
+<div class="bento">
+<div class="bento-card span-8">
+<div class="metadate">Publish at : 2026-08-02</div>
+<h2 class="article-title"><a href="/posts/Auto-SEO,-Sitemap,-RSS/">How DAX auto generates sitemap.xml, rss.xml, and SEO meta without plugins</a></h2>
+<div class="mt-3 p-5 content">
+<p>In Jekyll you need <code>jekyll-sitemap</code> plugin. In DAX it's built-in.</p>
+
+<p>After <code>dotnet run -- build</code>, you get:</p>
+
+<ul><li><code>/site/sitemap.xml</code> - all collections</li>
+<li><code>/site/rss.xml</code> - blog posts sorted by date</li>
+<li><code>/site/robots.txt</code></li>
+<li>Auto <code><meta></code> canonical, og:image from frontmatter <code>image:</code></li>
+
+<p></ul>Just set in frontmatter:</p>
+
+<pre><code>title: My Post
+<p>description: SEO description</p>
+<p>image: /img/dax-primary-logo.webp</p>
+<p></code></pre></p>
+
+<p>DAX injects:</p>
+
+<pre><code>&lt;meta name=&quot;description&quot; content=&quot;...&quot;&gt;
+<p>&lt;meta property=&quot;og:image&quot; content=&quot;...&quot;&gt;</p>
+<p>&lt;link rel=&quot;canonical&quot; href=&quot;...&quot;&gt;</p>
+<p></code></pre></p>
+
+<p>Lighthouse 100/100 out of the box. No plugin needed.</p>
+
+</div>
+<div class="row mt-5">
+
+<div class="col-lg-6 col-6 p-2">
+
+<a 
+href="/posts/Auto-Collections-and-Free-Nested-Frontmatter/">
+<img class="img-post mb-3" 
+width="100%" height="100%"
+alt="Auto Collections and Free Nested Frontmatter - Jekyll Style but Faster"
+src="/img/favicon.webp"
+/>
+<div class="p-3">
+<h3>Auto Collections and Free Nested Frontmatter - Jekyll Style but Faster</h3>
+<p>How DAX auto collections and unlimited nested YAML frontmatter works without fixed schema</p>
+</div>
+</a>
+
+</div>
+
+<div class="col-lg-6 col-6 p-2">
+
+<a 
+href="/posts/Understanding-DAX/">
+<img class="img-post mb-3" 
+width="100%" height="100%"
+alt="Understanding DAX .dax Layout Engine - Razor Lite for Static"
+src="/img/dax-primary-logo.webp"
+/>
+<div class="p-3 text-end">
+<h3>Understanding DAX .dax Layout Engine - Razor Lite for Static</h3>
+Deep dive into DAX layout system, how .dax files work vs Liquid, Razor, and Nunjucks
+</a>
+</div>
+
+</div>
+</div>
+</div>
+<div class="bento-card span-4 trans">
+<h3>About</h3>
+<img src="/img/dax-primary-logo.webp" 
+alt="DAX .NET Static Site Generator" class="img-thumbnail mt-2 mb-3">
+<h3>DAX .NET Static Site Generator</h3>
+<p>DAX is a slim .NET SSG. Build static sites 50x faster than Blazor SSG. No WASM bloat, just pure static HTML. For .NET devs who hate Blazor slow.</p>
+<h3 class="mt-5">Lastest Post</h3>
+
+<a href="/posts/DAX-Roadmap-v2//">
+<img class="img-fluid" alt="DAX Roadmap v2: AOT, Image Optimization, and CMS Mode" 
+width="100%" height="100%"
+src="/img/favicon.webp"/></a>
+<h3>DAX Roadmap v2: AOT, Image Optimization, and CMS Mode</h3>
+
+<a href="/posts/Deploy-DAX-to-GitHub-Pages-&-Cloudflare//">
+<img class="img-fluid" alt="Deploy DAX Static Site to GitHub Pages, Cloudflare, and Vercel" 
+width="100%" height="100%"
+src="/img/icon.webp"/></a>
+<h3>Deploy DAX Static Site to GitHub Pages, Cloudflare, and Vercel</h3>
+
+<a href="/posts/No-Node//">
+<img class="img-fluid" alt="No Node.js, No npm Hell: Building SSG Pure C#" 
+width="100%" height="100%"
+src="/img/icon.webp"/></a>
+<h3>No Node.js, No npm Hell: Building SSG Pure C#</h3>
+
+<h3 class="mt-5">Tags</h3>
+
+<a href="/tags/dotnet/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+dotnet
+</a>
+<a href="/tags/nodejs/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+nodejs
+</a>
+<a href="/tags/devops/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+devops
+</a>
+<a href="/tags/csharp/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+csharp
+</a>
+<a href="/tags/deploy/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+deploy
+</a>
+<a href="/tags/github-pages/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+github-pages
+</a>
+<a href="/tags/cloudflare/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+cloudflare
+</a>
+<a href="/tags/hosting/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+hosting
+</a>
+<a href="/tags/seo/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+seo
+</a>
+<a href="/tags/sitemap/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+sitemap
+</a>
+<a href="/tags/rss/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+rss
+</a>
+<a href="/tags/performance/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+performance
+</a>
+<a href="/tags/layout/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+layout
+</a>
+<a href="/tags/razor/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+razor
+</a>
+<a href="/tags/templating/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+templating
+</a>
+<a href="/tags/dax/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+dax
+</a>
+<a href="/tags/markdown/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+markdown
+</a>
+<a href="/tags/markdig/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+markdig
+</a>
+<a href="/tags/content/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+content
+</a>
+<a href="/tags/roadmap/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+roadmap
+</a>
+<a href="/tags/dotnet8/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+dotnet8
+</a>
+<a href="/tags/future/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+future
+</a>
+<a href="/tags/tutorial/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+tutorial
+</a>
+<a href="/tags/collections/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+collections
+</a>
+<a href="/tags/frontmatter/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+frontmatter
+</a>
+<a href="/tags/jekyll/" class="btn btn-secondary text-white btn-sm mt-1 mb-1 me-2">
+jekyll
+</a>
+</div>
+</div>
+</main>
+<footer class="container text-center">
+<p>
+MINIMAL built with <a href="https://dax.axcora.com">DAX</a>.
+</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/axcora-js@1.0.1/axcora.min.js" defer></script>
+</body>
+</html>

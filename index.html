@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="DAX dotnet - Pure C# Slim SSG">
+<title>DAX - The Blazing Fast .NET Static Site Generator</title>
+<meta name="description" content="DAX is a minimal, dependency-free SSG built with C# .NET 8. No Node.js, no bloat, pure static HTML in milliseconds.">
+<link rel="canonical" href="http://localhost:8080/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="MINIMAL">
+<meta property="og:title" content="DAX - The Blazing Fast .NET Static Site Generator">
+<meta property="og:description" content="DAX is a minimal, dependency-free SSG built with C# .NET 8. No Node.js, no bloat, pure static HTML in milliseconds.">
+<meta property="og:url" content="http://localhost:8080/">
+<meta property="og:image" content="http://localhost:8080/img/dax-primary-logo.png">
+<meta property="og:image:alt" content="DAX - The Blazing Fast .NET Static Site Generator">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DAX - The Blazing Fast .NET Static Site Generator">
+<meta name="twitter:description" content="DAX is a minimal, dependency-free SSG built with C# .NET 8. No Node.js, no bloat, pure static HTML in milliseconds.">
+<meta name="twitter:image" content="http://localhost:8080/img/dax-primary-logo.png">
+<meta name="twitter:image:alt" content="DAX - The Blazing Fast .NET Static Site Generator">
+<link href="/img/favicon.webp" rel="icon" type="image/x-icon">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "DAX - The Blazing Fast .NET Static Site Generator",
+  "description": "DAX is a minimal, dependency-free SSG built with C# .NET 8. No Node.js, no bloat, pure static HTML in milliseconds.",
+  "url": "http://localhost:8080/",
+  "image": "http://localhost:8080/img/dax-primary-logo.png",
+  "datePublished": "",
+  "author": {
+    "@type": "Person",
+    "name": "axcora"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "MINIMAL",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:8080//img/favicon.webp"
+    }
+  }
+}
+</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axcora-css@1.0.1/axcora.min.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="navbar p-3 shadow-sm">
+<div class="container">
+  <a class="navbar-brand ms-3" href="http://localhost:8080">MINIMAL</a>
+  <button class="navbar-toggler text-dark" onclick="document.querySelector('.navbar-collapse').classList.toggle('show')">☰</button>
+  <div class="navbar-collapse">
+    <ul class="navbar-nav mt-3">
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="/">
+      Home</a></li>
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="/posts/">
+      Blog</a></li>
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="/tags/">
+      Tags</a></li>
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="https://dax.axcora.com/docs/">
+      Docs</a></li>
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="https://dax.axcora.com/deploy/">
+      Deploy</a></li>
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="https://creativitaz.gumroad.com/l/dax">
+      Download</a></li>
+      
+      <li class="nav-item"><a class="nav-link text-dark" href="https://github.com/mesinkasir/dax/">
+      Github</a></li>
+      
+    </ul>
+  </div>
+  </div>
+</nav>
+<header class="container p-3 mt-5">
+<h1 class="hero-title"><a href="/">DAX</a><br>.NET Static, No Bullshit.</h1>
+<p>The C# SSG that builds 500 pages in <100ms. Pure .NET 8, pure HTML, zero Node.js.</p>
+</header>
+<main class="container p-3">
+<div class="bento">
+<div class="bento-card span-8 bg-dark">
+<h2 class="bento-title"><a class="text-white" href="http://localhost:8080">dotnet run -- build. Done.</a></h2>
+<p>No npm install, no webpack hell. Just C#.</p>
+<img class="img-fluid shadow-sm mt-2 mb-3" alt="dotnet run -- build. Done."
+width="100%" heigth="100%"
+src="/img/daxlogo.webp"/>
+<h3>Why C# for SSG?</h3>
+<p>Node.js SSG is slow and bloated. DAX uses .NET 8 native compilation. Build 1000 markdown files faster than Astro can start its dev server.</p><p>Inspired by Jekyll, Eleventy, Hugo — but rewritten in C#. Familiar frontmatter, layouts, collections, but with the speed and safety of .NET.</p>
+<a href="https://github.com/axcora/dax" class="btn btn-light mt-3" >Download DAX .NET Starter →</a>
+</div>
+<div class="bento-card span-4">
+<div class="card p-3 mb-2">
+<img class="img-fluid mb-3 shadow-sm" alt="C# Native Collections"
+width="100%" height="100%" 
+loading="lazy" 
+src="/img/favicon.webp"/>
+<h3><a href="http://localhost:8080">C# Native Collections</a></h3>
+<p>Folder = Collection. DAX auto-scans /posts, /projects, /docs and generates pagination, archives, and taxonomies. No _config.yml nightmare.</p>
+</div><div class="card p-3 mb-2">
+<img class="img-fluid mb-3 shadow-sm" alt="Unlimited Nested Frontmatter"
+width="100%" height="100%" 
+loading="lazy" 
+src="/img/icon.webp"/>
+<h3><a href="http://localhost:8080">Unlimited Nested Frontmatter</a></h3>
+<p>YAML frontmatter without schema limit. Nest hero.bento.blog.start as deep as you want. Jekyll style, but strongly-typed in C#.</p>
+</div>
+</div>
+<div class="bento-card span-3">
+<img width="64" height="64" 
+alt="0ms Cold Start"
+loading="lazy" 
+src="/img/icon/fast.svg"/>
+<h3><a href="/">0ms Cold Start</a></h3>
+<p>No Node. No JS runtime. dotnet run is the builder. CI/CD builds finish before Vercel even installs dependencies.</p>
+</div><div class="bento-card span-3">
+<img width="64" height="64" 
+alt="Razor-ish DAX Layout"
+loading="lazy" 
+src="/img/icon/champ.svg"/>
+<h3><a href="/">Razor-ish DAX Layout</a></h3>
+<p>.dax layout files - simple, familiar, like Liquid but without the weird syntax. Pure C# string templating.</p>
+</div><div class="bento-card span-3">
+<img width="64" height="64" 
+alt="SEO Out of The Box"
+loading="lazy" 
+src="/img/icon/seo.svg"/>
+<h3><a href="/">SEO Out of The Box</a></h3>
+<p>Auto sitemap.xml, rss.xml, canonical, OpenGraph. DAX generates clean semantic HTML that Google loves.</p>
+</div><div class="bento-card span-3">
+<img width="64" height="64" 
+alt="Deploy Anywhere"
+loading="lazy" 
+src="/img/icon/md.svg"/>
+<h3><a href="/">Deploy Anywhere</a></h3>
+<p>Output is /site folder - pure static. Deploy to GitHub Pages, Cloudflare Pages, Netlify, or your own VPS with DAX domain.</p>
+</div>
+<div class="bento-card span-12">
+<h2 class="text-center p-3"><a href="/">DAX Engineering Logs</a></h2>
+<div class="bento">
+
+<div class="bento-card span-6">
+<a href="/posts/DAX-Roadmap-v2/"><img class="img-post shadow-sm" 
+width="100%" height="100%"
+alt="DAX Roadmap v2: AOT, Image Optimization, and CMS Mode"
+src="/img/favicon.webp"
+/></a>
+<h3><a href="/posts/DAX-Roadmap-v2/">DAX Roadmap v2: AOT, Image Optimization, and CMS Mode</a></h3>
+<p>
+What's next for DAX C# SSG - Native AOT binary, image webp optimization, and headless CMS support
+</p>
+</div>
+
+<div class="bento-card span-6">
+<a href="/posts/Deploy-DAX-to-GitHub-Pages-&-Cloudflare/"><img class="img-post shadow-sm" 
+width="100%" height="100%"
+alt="Deploy DAX Static Site to GitHub Pages, Cloudflare, and Vercel"
+src="/img/icon.webp"
+/></a>
+<h3><a href="/posts/Deploy-DAX-to-GitHub-Pages-&-Cloudflare/">Deploy DAX Static Site to GitHub Pages, Cloudflare, and Vercel</a></h3>
+<p>
+Step by step deploying DAX /site output to GitHub Pages with custom domain and Cloudflare
+</p>
+</div>
+
+<div class="bento-card span-6">
+<a href="/posts/No-Node/"><img class="img-post shadow-sm" 
+width="100%" height="100%"
+alt="No Node.js, No npm Hell: Building SSG Pure C#"
+src="/img/icon.webp"
+/></a>
+<h3><a href="/posts/No-Node/">No Node.js, No npm Hell: Building SSG Pure C#</a></h3>
+<p>
+Why DAX removes Node.js dependency and how it improves CI/CD and developer experience
+</p>
+</div>
+
+<div class="bento-card span-6">
+<a href="/posts/Markdig-Power/"><img class="img-post shadow-sm" 
+width="100%" height="100%"
+alt="Markdig Power: Extended Markdown in DAX .NET SSG"
+src="/img/dax-primary-logo.webp"
+/></a>
+<h3><a href="/posts/Markdig-Power/">Markdig Power: Extended Markdown in DAX .NET SSG</a></h3>
+<p>
+How DAX uses Markdig to support tables, footnotes, code highlighting, and custom extensions
+</p>
+</div>
+
+</div>
+<div class="col-12 text-center p-5">
+<a href="/posts/" class="text-white btn btn-secondary">Explore All DAX Articles</a>
+</div>
+</div>
+<div class="bento-card span-4 bg-dark">
+<h2 class="text-center">Start with DAX in 30s</h2>
+<img class="img-fluid" alt="Start with DAX in 30s" width="100%" height="100%" loading="lazy"
+src="/img/dax-primary-logo.webp"/>
+<p>dotnet new + dax = your site live. No tutorial hell.</p>
+<a href="https://github.com/axcora/dax" class="btn btn-light">Get DAX Starter Zip</a>
+</div>
+<div class="bento-card span-8 mb-2 text-center">
+<img class="img-fluid" width="64" height="64" 
+alt="Built with .NET 8"
+loading="lazy"
+src="/img/icon/contact.svg"/>
+<h3>Built with .NET 8</h3>
+<p>DAX is open source by AXcora. Fork it, hack it, ship it.</p>
+
+<div class="bento">
+<div class="bento-card span-4">
+<img class="img-fluid" width="64" height="64" 
+src="/img/icon/address.svg" 
+alt="Open Source"
+/>
+<h3>Open Source</h3>
+<p>MIT Licensed on GitHub</p>
+</div><div class="bento-card span-4">
+<img class="img-fluid" width="64" height="64" 
+src="/img/icon/chat.svg" 
+alt="C# Community"
+/>
+<h3>C# Community</h3>
+<p>Join discussions on GitHub</p>
+</div><div class="bento-card span-4">
+<img class="img-fluid" width="64" height="64" 
+src="/img/icon/email.svg" 
+alt="Docs"
+/>
+<h3>Docs</h3>
+<p>Check DAX Wiki & README</p>
+</div>
+
+</div>
+</div>
+</div>
+</main>
+<footer class="container text-center">
+<p>
+MINIMAL built with <a href="https://dax.axcora.com">DAX</a>.
+</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/axcora-js@1.0.1/axcora.min.js" defer></script>
+</body>
+</html>
