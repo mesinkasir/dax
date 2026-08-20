@@ -1,5 +1,5 @@
 [build]
-  command = "dotnet publish -c Release -o bin && dotnet bin/DAX.dll build"
+  command = "dotnet publish -c Release -o bin && dotnet bin/Dax.dll build"
   publish = "site"
 
 [build.environment]
