@@ -1,7 +1,9 @@
 using System.Text;
+using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Net;
+using System.Threading;
 
 class Program
 {
@@ -153,18 +155,41 @@ class DaxBuilder
         return "";
     }
 
+    string SafeRead(string f, int retries = 5)
+    {
+        for (int i = 0; i < retries; i++)
+        {
+            try
+            {
+                using var fs = new FileStream(f, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                using var sr = new StreamReader(fs);
+                return sr.ReadToEnd();
+            }
+            catch (IOException)
+            {
+                Thread.Sleep(100 * (i+1));
+            }
+        }
+        return File.ReadAllText(f);
+    }
+
     void LoadContent()
     {
         AllPages = new();
         var mdFiles = Directory.GetFiles("content", "*.md", SearchOption.AllDirectories);
         foreach (var f in mdFiles)
         {
-            var raw = File.ReadAllText(f);
+            var raw = SafeRead(f);
             var (fm, body) = ParseFrontmatter(raw);
             var rel = Path.GetRelativePath("content", f).Replace("\\", "/");
             var isIndex = Path.GetFileNameWithoutExtension(f) == "index";
             string url;
-            if (rel == "index.md") url = "/";
+            if (fm.TryGetValue("permalink", out var perm) && perm != null && !string.IsNullOrWhiteSpace(perm.ToString()))
+            {
+                url = perm.ToString().Trim();
+                if (!url.StartsWith("/")) url = "/" + url;
+            }
+            else if (rel == "index.md") url = "/";
             else if (isIndex) url = "/" + Path.GetDirectoryName(rel).Replace("\\", "/") + "/";
             else
             {
@@ -304,10 +329,17 @@ class DaxBuilder
             }
             else
 {
+    // FIX MINIMAL: tags = per post (dari frontmatter), all_tags = global
+    var perPostTags = new List<object>();
+    if (page.Frontmatter.TryGetValue("tags", out var _pt)) perPostTags = ParseTags(_pt).Cast<object>().ToList();
+    var allTagsList = TagsMap.Select(kv => (object)new Dictionary<string, object> { ["name"]=kv.Key, ["slug"]=Slug(kv.Key), ["count"]=kv.Value.Count, ["url"]=$"/tags/{Slug(kv.Key)}/" }).ToList();
+    
     var ctx = BuildContext(page, extra: new Dictionary<string, object> {
         ["collections"] = CollectionsToTemplate(),
-        ["tags"] = TagsMap.Keys.ToList(),
+        ["tags"] = perPostTags,
+        ["post_tags"] = perPostTags,
         ["all_tags"] = TagsMap.Keys.ToList(),
+        ["all_tags_list"] = allTagsList,
         ["prev_post"] = page.PrevPost?.ToTemplateDict(),
         ["next_post"] = page.NextPost?.ToTemplateDict(),
         ["has_prev"] = page.PrevPost!= null,
@@ -315,7 +347,10 @@ class DaxBuilder
     });
     ctx["content"] = page.HtmlBody;
     var html = Engine.RenderWithLayouts(page.Frontmatter, ctx);
-    string outPath = page.Url == "/"? "site/index.html" : $"site{page.Url}index.html";
+    string outPath;
+    if (page.Url == "/") outPath = "site/index.html";
+    else if (page.Url.EndsWith(".html", StringComparison.OrdinalIgnoreCase)) outPath = $"site{page.Url}";
+    else outPath = $"site{page.Url}index.html";
     Directory.CreateDirectory(Path.GetDirectoryName(outPath));
     File.WriteAllText(outPath, html);
     AllUrls.Add(page.Url);
@@ -465,6 +500,12 @@ class DaxPage
     public Dictionary<string, object> ToTemplateDict()
     {
         var d = new Dictionary<string, object>(Frontmatter, StringComparer.OrdinalIgnoreCase);
+        // biar {{ post.tags }} di loop collections jalan
+        if (d.TryGetValue("tags", out var _t))
+        {
+            // keep as List<object> untuk engine
+            if (_t is List<string> lss) d["tags"] = lss.Cast<object>().ToList();
+        }
         d["url"] = Url;
         d["content"] = HtmlBody;
         return d;
@@ -574,7 +615,9 @@ class DaxEngine
             var rawCol = Resolve(colExpr, ctx);
             List<object> list = new();
             if (rawCol is List<object> lo) list = lo;
+            else if (rawCol is List<string> ls) list = ls.Cast<object>().ToList();
             else if (rawCol is IEnumerable<object> en) list = en.ToList();
+            else if (rawCol is IEnumerable<string> ens) list = ens.Cast<object>().ToList();
             if (!string.IsNullOrEmpty(limitStr) && int.TryParse(limitStr, out var lim)) list = list.Take(lim).ToList();
             var sb = new StringBuilder();
             foreach (var item in list)
@@ -864,8 +907,9 @@ class DaxServer
             {
                 var full = e.FullPath.ToLower();
                 if (full.Contains("\\site\\") || full.Contains("/site/") || full.Contains("\\bin\\") || full.Contains("\\obj\\") || full.Contains("\\.git\\")) return;
-                if ((DateTime.Now - lastBuild).TotalMilliseconds < 500) return;
+                if ((DateTime.Now - lastBuild).TotalMilliseconds < 800) return;
                 lastBuild = DateTime.Now;
+                Thread.Sleep(150);
                 Console.WriteLine($"[DAX] changed {e.Name} -> rebuild");
                 new DaxBuilder().Build();
             }
